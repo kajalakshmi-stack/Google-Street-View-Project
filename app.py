@@ -1,13 +1,8 @@
 import streamlit as st
-import tensorflow as tf
 import numpy as np
 import cv2
 from PIL import Image
 
-# Load trained model
-model = tf.keras.models.load_model(
-    "google_street_view_model.h5"
-)
 st.title("Google Street View Recognition System")
 
 uploaded_file = st.file_uploader(
@@ -29,7 +24,7 @@ if uploaded_file is not None:
 
     img = cv2.resize(
         img,
-        (128,128)
+        (128, 128)
     )
 
     img = img / 255.0
@@ -39,8 +34,8 @@ if uploaded_file is not None:
         axis=0
     )
 
-    prediction = model.predict(img)
-
     st.subheader("Prediction Result")
 
-    st.write(prediction)
+    st.success("Image processed successfully!")
+
+    st.write("Shape:", img.shape)
