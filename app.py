@@ -6,9 +6,8 @@ from PIL import Image
 
 # Load trained model
 model = tf.keras.models.load_model(
-    "google_street_view_model.keras"
+    "google_street_view_model.h5"
 )
-
 st.title("Google Street View Recognition System")
 
 uploaded_file = st.file_uploader(
